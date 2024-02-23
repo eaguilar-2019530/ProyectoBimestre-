@@ -14,7 +14,7 @@ export const connect = async()=>{
         mongoose.connection.on('disconnected', ()=> console.log('MongoDB | disconnected'))
         mongoose.connection.on('reconnected', ()=> console.log('MongoDB | reconnected to mongodb'))
 
-        return await mongoose.connect('mongodb://127.0.0.1:27017/ProyectoBimestre|')
+        return await mongoose.connect('mongodb://127.0.0.1:27017/ProyectoBimestre')
     } catch (err) {
         console.error('Database connection failed', err )
     }
