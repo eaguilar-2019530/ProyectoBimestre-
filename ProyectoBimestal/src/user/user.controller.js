@@ -1,6 +1,32 @@
 'use strict'
 
 import User from './user.model.js'
+import { encrypt, checkPassword, checkUpdate } from '../utils/validator.js'
+import { generateJwt } from '../utils/jwt.js'
+
+export const ADMIN = async(req, res)=>{
+    try {
+        let defaultADMIN = await User.findOne({ username: 'Edson'})
+        if (!defaultADMIN) {
+            let data = {
+                name: 'Edson1',
+                surname: 'Aguilar',
+                email: 'eaguilar@gmail.com',
+                username: 'Edson',
+                password: '12345',
+                phone: '79641346',
+                address: 'Kinal',
+                role: 'ADMIN'
+            }
+            data.password = await encrypt(data.password)
+            let user = new User(data)
+            await user.save()
+        }
+    } catch (err) {
+        console.error(err)
+        return res.status(404).send({message:' Error '})
+    }
+}
 
 export const register = async(req,res)=>{
     try {
