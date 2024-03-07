@@ -1,35 +1,42 @@
 {
     "client": "Thunder Client",
     "collectionName": "ProyectoBimestre|",
-    "dateExported": "2024-02-23T23:19:45.905Z",
+    "dateExported": "2024-03-07T23:21:56.222Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "04d992b7-a2f5-4667-b00a-faf5924cf333",
+            "_id": "e507a209-7ae5-492d-8b36-01add5f1374b",
             "name": "User",
             "containerId": "",
-            "created": "2024-02-23T18:48:50.579Z",
-            "sortNum": 10000
+            "created": "2024-03-07T20:06:13.848Z",
+            "sortNum": 20000
         },
         {
-            "_id": "6f81c35c-c6ed-4705-b71e-07396ddaa9bf",
-            "name": "UserAdmin",
+            "_id": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "Category",
             "containerId": "",
-            "created": "2024-02-23T19:40:31.511Z",
-            "sortNum": 20000
+            "created": "2024-03-07T22:22:43.278Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "7f73b688-0a17-4c8d-8fc0-742764d1aa68",
+            "name": "Product",
+            "containerId": "",
+            "created": "2024-03-07T22:58:24.164Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
         {
-            "_id": "c089629f-26ba-4b45-9300-bc5bd032723f",
-            "colId": "ca2ac549-964b-4545-a506-4ba9c01c5dfd",
-            "containerId": "6f81c35c-c6ed-4705-b71e-07396ddaa9bf",
+            "_id": "4f8c455a-bffc-417f-983f-a68e8113c62e",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "e507a209-7ae5-492d-8b36-01add5f1374b",
             "name": "register",
             "url": "/register",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-02-23T18:49:33.675Z",
-            "modified": "2024-02-23T20:28:23.563Z",
+            "created": "2024-03-07T20:06:13.847Z",
+            "modified": "2024-03-07T20:16:10.680Z",
             "headers": [],
             "params": [],
             "body": {
@@ -46,15 +53,15 @@
                     },
                     {
                         "name": "username",
-                        "value": "OSITO13"
+                        "value": "Jgatica"
                     },
                     {
                         "name": "password",
-                        "value": "osito12"
+                        "value": "123456"
                     },
                     {
                         "name": "phone",
-                        "value": "65264912"
+                        "value": "45264912"
                     },
                     {
                         "name": "address",
@@ -62,26 +69,27 @@
                     },
                     {
                         "name": "role",
-                        "value": "ADMIN"
+                        "value": "CLIENT"
                     },
                     {
                         "name": "email",
-                        "value": "WEWS"
+                        "value": "jgatica04@gmail.com"
                     }
                 ]
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "8b8772cc-8ded-4622-a7dd-01345d4f8ed6",
-            "colId": "ca2ac549-964b-4545-a506-4ba9c01c5dfd",
-            "containerId": "6f81c35c-c6ed-4705-b71e-07396ddaa9bf",
+            "_id": "649c125b-6663-4777-b46c-f4956f74017c",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "e507a209-7ae5-492d-8b36-01add5f1374b",
             "name": "login",
             "url": "/login",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-02-23T18:49:46.043Z",
-            "modified": "2024-02-23T21:28:20.010Z",
+            "created": "2024-03-07T20:06:13.848Z",
+            "modified": "2024-03-07T22:18:20.076Z",
             "headers": [],
             "params": [],
             "body": {
@@ -90,45 +98,36 @@
                 "form": [
                     {
                         "name": "username",
-                        "value": "edson"
+                        "value": "jgatica",
+                        "isDisabled": true
                     },
                     {
                         "name": "password",
                         "value": "12345"
+                    },
+                    {
+                        "name": "email",
+                        "value": "eaguilar@gmail.com"
                     }
                 ]
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "499901d4-aa00-43c4-88ef-4740681f39a6",
-            "colId": "ca2ac549-964b-4545-a506-4ba9c01c5dfd",
-            "containerId": "6f81c35c-c6ed-4705-b71e-07396ddaa9bf",
+            "_id": "03bd7a0e-2c83-4464-90b4-22b39852d7fc",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "e507a209-7ae5-492d-8b36-01add5f1374b",
             "name": "update",
-            "url": "/update/65d8ee3fbc51dfb542dc029c",
+            "url": "/update/65ea3ae135f1331fcbfff646",
             "method": "PUT",
             "sortNum": 30000,
-            "created": "2024-02-23T19:41:26.699Z",
-            "modified": "2024-02-23T21:56:00.307Z",
+            "created": "2024-03-07T20:06:13.849Z",
+            "modified": "2024-03-07T22:18:29.994Z",
             "headers": [
                 {
-                    "name": "Token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWQ5MGQ2NDNhNjdlM2NiNWE4YTE0ZjAiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6Ikp1YW4iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDg3MjQ5NDAsImV4cCI6MTcwODczNTc0MH0.nZvP3ifDW26WKw3A8VUjRvJX_7-ZYyOxJ4potv9wYSg"
-                },
-                {
-                    "name": "secretKey",
-                    "value": "",
-                    "isDisabled": true
-                },
-                {
-                    "name": "Accept",
-                    "value": "*/*",
-                    "isDisabled": true
-                },
-                {
-                    "name": "User-Agent",
-                    "value": "Thunder Client (https://www.thunderclient.com)",
-                    "isDisabled": true
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0OTkwMCwiZXhwIjoxNzA5ODYwNzAwfQ.i_OAu73Ka-0MdU3npiFai19C9JBUa2jY-Uq64zxebcE"
                 }
             ],
             "params": [],
@@ -136,10 +135,6 @@
                 "type": "formencoded",
                 "raw": "",
                 "form": [
-                    {
-                        "name": "name",
-                        "value": "Juan"
-                    },
                     {
                         "name": "surname",
                         "value": "lopez"
@@ -150,26 +145,162 @@
                     }
                 ]
             },
+            "reqType": "put",
             "tests": []
         },
         {
-            "_id": "39ae8675-36a1-467e-95b7-a77ed8f39aad",
-            "colId": "ca2ac549-964b-4545-a506-4ba9c01c5dfd",
-            "containerId": "6f81c35c-c6ed-4705-b71e-07396ddaa9bf",
+            "_id": "5e68e0e6-6842-49cb-8810-8ccb22aa69ab",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "e507a209-7ae5-492d-8b36-01add5f1374b",
             "name": "delete",
-            "url": "/deleteU/65d8f92215f910df66f975e8",
+            "url": "/deleteU/65ea208a6c345e160ba7025c",
             "method": "DELETE",
             "sortNum": 40000,
-            "created": "2024-02-23T19:44:59.883Z",
-            "modified": "2024-02-23T20:10:14.286Z",
+            "created": "2024-03-07T20:06:13.850Z",
+            "modified": "2024-03-07T21:57:46.810Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0ODY0MiwiZXhwIjoxNzA5ODU5NDQyfQ.SPJdJbmxIO6Hof-CRoWVL8mogUx4NLFVJS2C1Xov_Ss"
+                }
+            ],
+            "params": [],
+            "reqType": "del",
+            "tests": []
+        },
+        {
+            "_id": "d27000cc-c312-45ca-be81-c9acdae6b945",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "e507a209-7ae5-492d-8b36-01add5f1374b",
+            "name": "test",
+            "url": "/test",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-07T20:14:25.225Z",
+            "modified": "2024-03-07T20:15:17.563Z",
             "headers": [],
             "params": [],
             "tests": []
+        },
+        {
+            "_id": "c9dea6b6-4dfc-403f-8b0c-21642dc0260a",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "ListCategory",
+            "url": "/category/getCategory",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-03-07T22:23:19.357Z",
+            "modified": "2024-03-07T22:52:05.989Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0OTkwMCwiZXhwIjoxNzA5ODYwNzAwfQ.i_OAu73Ka-0MdU3npiFai19C9JBUa2jY-Uq64zxebcE"
+                }
+            ],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "323edcb5-2d50-46ee-bc9c-9f0f96a0a3bf",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "addCategory",
+            "url": "/category/save",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-03-07T22:23:38.571Z",
+            "modified": "2024-03-07T22:49:50.269Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0OTkwMCwiZXhwIjoxNzA5ODYwNzAwfQ.i_OAu73Ka-0MdU3npiFai19C9JBUa2jY-Uq64zxebcE"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Línea blanca"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Son productos para uso diario en el hogar de alta gama"
+                    }
+                ]
+            },
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "8e5786a7-31ca-44b2-867e-955b21b5ad54",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "DeleteCategory",
+            "url": "/category/DeleteCategory/65ea448e0258157c4d58264f",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2024-03-07T22:23:54.924Z",
+            "modified": "2024-03-07T22:53:05.292Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0OTkwMCwiZXhwIjoxNzA5ODYwNzAwfQ.i_OAu73Ka-0MdU3npiFai19C9JBUa2jY-Uq64zxebcE"
+                }
+            ],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "d9642190-db3d-4800-ab62-ac46b334a4b1",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "UpdateCategory",
+            "url": "/category/UpdateCategory/65ea440a0258157c4d58264c",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2024-03-07T22:24:06.403Z",
+            "modified": "2024-03-07T22:56:12.094Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWVhMGM2OTVlOTk5YmZhOTJkZmM4ZWEiLCJ1c2VybmFtZSI6ImVkc29uIiwibmFtZSI6IkVkc29uMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwOTg0OTkwMCwiZXhwIjoxNzA5ODYwNzAwfQ.i_OAu73Ka-0MdU3npiFai19C9JBUa2jY-Uq64zxebcE"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Video Juegos"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "693ba2ce-2f1d-4c01-9682-d19ff39282aa",
+            "colId": "56396e62-eae0-4118-82f9-9a02064d33e6",
+            "containerId": "cb5cdade-1254-4386-a60f-a73e73e0de44",
+            "name": "test",
+            "url": "",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-03-07T22:47:05.345Z",
+            "modified": "2024-03-07T22:47:05.345Z",
+            "headers": []
         }
     ],
     "settings": {
         "options": {
-            "baseUrl": "localhost:3200"
+            "baseUrl": "localhost:2880"
         }
     }
 }

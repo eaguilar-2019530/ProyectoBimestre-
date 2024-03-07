@@ -12,9 +12,9 @@ api.get('/getCategory',[validateJwt], getCategory)
 
 api.post('/save',[validateJwt, isAdmin], save)
 
-api.put('/UpdateCategory', [validateJwt, isAdmin], UpdateCategory)
+api.put('/UpdateCategory/:id', [validateJwt, isAdmin], UpdateCategory)
 
-api.delete('/DeleteCAtegory', [validateJwt, isAdmin], DeleteCategory)
+api.delete('/DeleteCategory/:id', [validateJwt, isAdmin], DeleteCategory)
 
 
 export default api

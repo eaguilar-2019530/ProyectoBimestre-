@@ -1,12 +1,14 @@
 'use strict'
 
 import express from 'express'
-import {register, login, update, deleteU } from './user.controller.js'
+import {register, login, update, deleteU, TEST } from './user.controller.js'
 import { validateJwt, isAdmin } from '../middlewares/validate-jwt.js'
 
 const api = express.Router()
 
-api.put('/update/:id',[validateJwt, isAdmin], update)
+api.get('/test', TEST)
+
+api.put('/update/:id',[validateJwt], update)
 api.delete('/deleteU/:id',[validateJwt], deleteU)
 
 api.post('/register', register)

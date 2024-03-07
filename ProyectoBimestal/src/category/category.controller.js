@@ -35,7 +35,7 @@ export const UpdateCategory = async(req, res)=>{
         let data = req.body
         let UpdateCategory = await Category.findOneAndUpdate(
             {_id: id},
-            datos,
+            data,
             {new: true}
         )
         if(!UpdateCategory)return res.status(401).send({message: 'No se pudieron actulizar los  datos de Categoria'})
@@ -51,7 +51,7 @@ export const DeleteCategory = async(req,res)=>{
         let {id} = req.params
         let daleteCategory = await Category.findOneAndDelete({ _id: id })
         if (!daleteCategory) return res.status(404).send({ message: 'Categoria no econtrada y no eliminada' })
-        await porDefecto(id, res)
+        await CategoryDefect(id, res)
         return res.send({ message: `La categoría ${daleteCategory.Category} fue eliminada` })
     } catch (err) {
         console.error(err);
