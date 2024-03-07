@@ -3,6 +3,9 @@
 import User from './user.model.js'
 import { encrypt, checkPassword, checkUpdate } from '../utils/validator.js'
 import { generateJwt } from '../utils/jwt.js'
+import Product from '../product/product.model.js'
+import Receipt from '../receipt/receipt.model.js'
+import moment from 'moment'
 
 export const ADMIN = async(req, res)=>{
     try {
@@ -35,7 +38,7 @@ export const register = async(req,res)=>{
         data.role = 'CLIENT'
         let user = new User(data)
         await user.save()
-        return res.send({message: 'Register successfully'})
+        return res.send({message: `Registro exitosamente, Bienvenido ${user.username}`})
     } catch (err) {
         console.error(err)
         return res.status(500).send({message: 'Error registerin user', err})
@@ -44,8 +47,24 @@ export const register = async(req,res)=>{
 
 export const login = async(req, res)=>{
     try {
-        let { username, password } = req.body
-        let user = await User.findOne({ username })
+        let { username, email, password } = req.body
+        let user = await User.findOne({ $or: [{ username}, { email} ] })
+        let receipts = await Product.findOne({ _id: receipt.product })
+        let totalReceipt = 0
+        let receiptDate = {}
+        for(let receipt of receipts){
+            let product = await Product.findOne({_id: receipt.product})
+            let totalProduct = receipt.cantProduct * product.price
+            const  receiptDate = moment(receipt.date, 'DD/MM/YYYY, HH:mm:ss')
+            const existingReceipt = receiptDate.format('DD-MM-YYYY')
+
+        }
+
+
+
+
+
+
         if(user && await checkPassword(password, user.password)){
             let loggedUser = {
                 uid: user._id,
