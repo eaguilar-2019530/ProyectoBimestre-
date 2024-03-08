@@ -16,7 +16,7 @@ api.post('/getName',[validateJwt], getName)
 api.get('/getProductExhausted',[validateJwt, isAdmin], getProductExhausted)
 api.post('/save',[validateJwt, isAdmin], save)
 api.put('/UpdateProduct/:id', [ validateJwt, isAdmin], UpdateProduct)
-api.get('/deleteProduct', [ validateJwt, isAdmin], deleteProduct)
+api.delete('/deleteProduct/:id', [ validateJwt, isAdmin], deleteProduct)
 
 
 export default api

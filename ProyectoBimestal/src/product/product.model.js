@@ -13,7 +13,7 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
-     category:{
+    category:{
         type: Schema.ObjectId,
         ref: 'category',
         required: true

@@ -111,7 +111,7 @@ export const update = async(req, res)=>{
                 data,
                 {new: true}
                 )
-                if(!updatedUserA) return res.status(401).send({message: 'Usuario no se puede actulizar'})
+                if(!updatedUserA) return res.status(401).send({message: 'user no se puede actulizar'})
                 return res.send({message: 'Actualizado',updatedUserA})
         }
         if(role === 'CLIENT'){
@@ -123,7 +123,7 @@ export const update = async(req, res)=>{
                         data,
                         {new: true}
                     )
-                    if(!updatedUser) return res.status(401).send({message: 'Usuario no se puedo actulizar'})
+                    if(!updatedUser) return res.status(401).send({message: 'user no se puedo actulizar'})
                         return res.send({message: 'Actualizado',updatedUser})
             }else{
                 return res.status(400).send({message: 'No tienes acceso al actualizar esta cuenta '})
@@ -143,12 +143,12 @@ export const deleteU = async(req, res)=>{
         console.log(id)
         if(role ==='ADMIN') {
             let deleteU = await User.findOneAndDelete({_id:id})
-            return  res.send({message: `El usuario: ${deleteU.username} se elimino exitosamente`})
+            return  res.send({message: `El user: ${deleteU.username} se elimino exitosamente`})
         }
         if(role ==='CLIENT'){
             if(uid === id){
                 let deleteU = await User.findOneAndDelete({_id:id})
-                return  res.send({message: `El usuario: ${deleteU.username} se elimino exitosamente`})
+                return  res.send({message: `El user: ${deleteU.username} se elimino exitosamente`})
             }else{
                 return res.status(400).send({message:'No puedes eliminar una cuenta que no es tuya'})
             }

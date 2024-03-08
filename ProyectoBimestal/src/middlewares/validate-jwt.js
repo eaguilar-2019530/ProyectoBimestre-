@@ -10,7 +10,7 @@ export const validateJwt = async(req, res, next)=>{
         if(!token) return res.status(401).send({message:'No autorizado'})
         let {uid} = jwt.verify(token,secretKey)
         let user = await User.findOne({_id:uid})
-        if(!user) return res.status(404).send({message: 'Usuario no encontrado - No autorizado'})
+        if(!user) return res.status(404).send({message: 'user no encontrado - No autorizado'})
         req.user = user
         next()
     }catch(err){

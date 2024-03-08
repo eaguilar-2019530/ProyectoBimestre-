@@ -6,11 +6,6 @@ const receiptSchema = Schema({
         ref: 'user',
         required: true
     },
-    address: {
-        type: Schema.ObjectId,
-        ref: 'user',
-        default: 'Guatemala, Guatemala'
-    },
     nit:{
         type: String,
         default: 'C/F'
@@ -19,6 +14,10 @@ const receiptSchema = Schema({
         type: String,
         immutable: true,
         default: '0/0/0'
+    },
+    state:{
+        type: Boolean,
+        required: false
     },
     shoppingCart:[{
         product:{
