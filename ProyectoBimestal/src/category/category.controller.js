@@ -20,7 +20,7 @@ export const save = async(req,res)=>{
 
 export const getCategory  = async(req, res)=>{
     try {
-        let category  = await Category.find()
+        let category  = await Category.find().select('-__v')
         if(category.length === 0) return res.status(400).send({message: 'No funciona'})
         return res.send({category})
     } catch (err) {
@@ -37,7 +37,7 @@ export const UpdateCategory = async(req, res)=>{
             {_id: id},
             data,
             {new: true}
-        )
+        ).select('-__v')
         if(!UpdateCategory)return res.status(401).send({message: 'No se pudieron actulizar los  datos de Categoria'})
         return res.send({message:'Correctemete actualizado',UpdateCategory})
     } catch (err) {
@@ -59,14 +59,14 @@ export const DeleteCategory = async(req,res)=>{
     }
 }
 
-export const CategoryDefect = async(req,res)=>{
+export const CategoryDefect = async(id,res)=>{
     try {
         let product = await Product.find({category: id})
-        if (!product || product.length === 0) return res.status(400).send({ message: 'Se elimino correctamente la categoria que no tenia ningun producto agregado' })
+        if (!product || product.length === 0) return res.status(400).send({ message: 'Se elimino correctamente la categoria' })
         let categoryDefect = await Category.findOne({ category: 'Por Defecto' })
         if (!categoryDefect)return res.status(400).send({ message: 'No se encontró la categoría por Defecto' })
         await Product.updateMany({categoria: id}, { category: categoryDefect._id })
-        return res.send({ message: 'Productos actualizados a la categoría por defecto' });
+        return res.send({ message: 'products actualizados a la categoría por defecto' });
     } catch (err) {
         console.error(err);
         return res.status(500).send({ message: 'Error en hacer la operación por defecto' });

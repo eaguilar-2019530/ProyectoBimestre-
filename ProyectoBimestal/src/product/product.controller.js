@@ -3,7 +3,7 @@
 import Product from './product.model.js'
 import Category from '../category/category.model.js'
 
-// Agregar producto
+// Agregar product
 export const save = async(req, res)=>{
     try{    
         let data = req.body
@@ -11,14 +11,14 @@ export const save = async(req, res)=>{
         if(!category) return res.status(400).send({message: 'Categoria no encontrada'})
         let product = new Product(data)
         await product.save()
-        return res.send({message: 'El producto se guardo correctamente' })
+        return res.send({message: 'El product se guardo correctamente' })
     }catch(err){
         console.error(err)
-        return res.status(500).send({message: 'Error al guardar el producto', err})
+        return res.status(500).send({message: 'Error al guardar el product', err})
     }
 }
  
-//Actualizar Producto
+//Actualizar product
 export const UpdateProduct = async ( req, res)=>{
     try {
         let {id} = req.params
@@ -28,38 +28,38 @@ export const UpdateProduct = async ( req, res)=>{
             data,
             {new: true}
         )
-        if(!UpdateProduct) return res.status(401).send({message: 'No se puede actualiar el producto'})
+        if(!UpdateProduct) return res.status(401).send({message: 'No se puede actualiar el product'})
         return res.send({message: 'Se actualizo correctamente'})
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Error al actualizar producto'})
+        return res.status(500).send({message: 'Error al actualizar product'})
     }
 }
 
 
-//Eliminar producto
+//Eliminar product
 export const deleteProduct = async(req, res)=>{
     try {
         let {id} = req.params
         let deleteProduct = await Product.findOneAndDelete({_id: id}, {state: false})
-        if(deleteProduct.state === false) return res.send({message: 'El producto ya esta eliminda'})
-        if(!deleteProduct) return res.status(404).send({message: 'El producto no se encontro y no se elimino'})
-        return res.send({message: ` El producto ${deleteProduct.nameProduct} se elimino correctamente`})
+        if(deleteProduct.state === false) return res.send({message: 'El product ya esta eliminda'})
+        if(!deleteProduct) return res.status(404).send({message: 'El product no se encontro y no se elimino'})
+        return res.send({message: ` El product ${deleteProduct.nameProduct} se elimino correctamente`})
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Error al eliminar el producto'})
+        return res.status(500).send({message: 'Error al eliminar el product'})
     }
 }
 
-//ver todos los productos
+//ver todos los products
 export const getProduct = async(req, res)=>{
     try {
         let product = await Product.find({state: true}).populate('category',['name','description'])
-        if(product.length === 0) return res.status(400).send({message: 'No se puede ver los productos'})
+        if(product.length === 0) return res.status(400).send({message: 'No se puede ver los products'})
         return res.send({product})
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'No hay ningun producto'})   
+        return res.status(500).send({message: 'No hay ningun product'})   
     }
 }
 
@@ -69,9 +69,9 @@ export const getName = async(req, res)=>{
     try {
         let {nameProduct} = req.body
         let product = await Product.findOne({nameProduct: nameProduct},{state: true})
-        if(!product || product.state === false)return res.status(404).send({message: 'No existe ningún producto con ese nombre'})
-        let productFound = await Product.findOne({_id: product._id}).populate('category', ['name', ' description'])
-        return res.send({message: ` Se encontro el producto ${productFound} `})
+        if(!product || product.state === false)return res.status(404).send({message: 'No existe ningún product con ese nombre'})
+        let productFound = await Product.findOne({_id: product._id}).populate('category', ['name'])
+        return res.send({message: ` Se encontro el product`, productFound})
     } catch (err) {
         console.error(err)
         return res.status(500).send({message: 'Erro al listar'})
@@ -79,29 +79,29 @@ export const getName = async(req, res)=>{
 }
 
 
-// ver los productos que existen en cada categoria
+// ver los products que existen en cada categoria
 export const getCategory = async(req,res)=>{
     try {
         let {id} = req.params
         let products = await Product.find({category: id, state: true})
         if (products.length === 0) 
-        return res.status(404).send({ message: 'No existe ningún producto con esta categoría' })
+        return res.status(404).send({ message: 'No existe ningún product con esta categoría' })
         let productsFound = await Promise.all(products.map(async (product) => {
             return await Product.findOne({ _id: product._id }).populate('category')
         }))
-        return res.send({ message: `Estos productos son`, productsFound })
+        return res.send({ message: `Estos products son`, productsFound })
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Productos no encontrados'})
+        return res.status(500).send({message: 'products no encontrados'})
     }
 }
 
 
-// ver los productos que se euentran agotados
+// ver los products que se euentran agotados
 export const getProductExhausted = async (req, res)=>{
     try {
         let product = await Product.find({stock: 0})
-        if(product.length === 0 || !product) return res.status(404).send({message: 'No hay ningun producto agotado'})
+        if(product.length === 0 || !product) return res.status(404).send({message: 'No hay ningun product agotado'})
         return res.send({product})
     } catch (err) {
         console.error(err)
@@ -109,14 +109,14 @@ export const getProductExhausted = async (req, res)=>{
     }
 }
 
-// ver lo productos más vendidos
+// ver lo products más vendidos
 export const getProductCont = async (req, res)=>{
     try {
         const product = await Product.find().sort({ cont: -1 })
-        if(!product || product.length === 0) return res.status(404).send({message: 'Por el momento no hay ningun producto disponible'})
+        if(!product || product.length === 0) return res.status(404).send({message: 'Por el momento no hay ningun product disponible'})
         return res.send({ product })
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Error al obtener los productos'})
+        return res.status(500).send({message: 'Error al obtener los products'})
     }
 }
